@@ -1,6 +1,5 @@
 package org.mc.singletonPattern;
 
-import sun.misc.Resource;
 
 /**
  * 枚举类型(极力推荐这种)
@@ -13,15 +12,38 @@ import sun.misc.Resource;
  * 调用构造器之外，还提供了自动序列化机制，防止反序列化的时候创建新
  * 的对象。因此，《Effective Java》作者推荐使用的方法。不过，
  * 在实际工作中，很少看见有人这么写。
- *
+ *  好处不外乎三点：1.线程安全 2.不会因为序列化而产生新实例 3.防止反射攻击
  */
 public enum SingletonEnum {
-	INSTANCE;
-	
-	private Singleton instance;
-	
-	private SingletonEnum(){
-		instance=new Singleton();
-	}
+	 INSTANCE {
+	        @Override
+	        protected void read() {
+	            System.out.println("read");
+	        }
+
+	        @Override
+	        protected void write() {
+	            System.out.println("write");
+	        }
+
+	    };
+	    protected abstract void read();
+	    protected abstract void write();
+		
+		private String name;
+		private int index;
+		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public int getIndex() {
+			return index;
+		}
+		public void setIndex(int index) {
+			this.index = index;
+		}
 
 }

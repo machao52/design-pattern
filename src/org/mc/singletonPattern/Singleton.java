@@ -1,5 +1,11 @@
 package org.mc.singletonPattern;
 
+
+/**
+ * Created in 2017/01/07
+ * @author machao
+ * 单例模式: 确保一个类只有一个实例,并提供一个全局访问点.
+ */
 public class Singleton {
 	
 	/**
@@ -18,7 +24,7 @@ public class Singleton {
 	private Singleton(){
 		
 	}
-    public static Singleton newInstance(){
+    public static Singleton getInstance(){
     	return instance;
     }*/
 	
@@ -33,7 +39,7 @@ public class Singleton {
     private Singleton(){
     	
     }
-    public static Singleton newInstance(){
+    public static Singleton getInstance(){
     	return instance;
     }*/
     
@@ -52,7 +58,7 @@ public class Singleton {
 		
 	}
 	
-	public static Singleton newInstance(){
+	public static Singleton getInstance(){
 		if(instance==null){
 			instance=new Singleton();
 		}
@@ -68,7 +74,7 @@ public class Singleton {
 		
 	}
 	
-	public static synchronized Singleton newInstance(){
+	public static synchronized Singleton getInstance(){
 		if(instance==null){
 			instance=new Singleton();
 		}
@@ -84,7 +90,7 @@ public class Singleton {
 		
 	}
 	
-	public static Singleton newInstance(){
+	public static Singleton getInstance(){
 		if(instance==null){
 			synchronized (Singleton.class) {
 				if(instance==null){
@@ -117,7 +123,7 @@ public class Singleton {
 		
 	}
 	
-	public static Singleton newInstance(){
+	public static Singleton getInstance(){
 		if(instance==null){
 			synchronized (Singleton.class) {
 				if(instance==null){
@@ -142,7 +148,7 @@ public class Singleton {
 	private Singleton(){
 		
 	}
-	public static Singleton newInstance(){
+	public static Singleton getInstance(){
 		return SingletonHolder.instance;
 	}
 	
