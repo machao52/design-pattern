@@ -17,12 +17,19 @@ package org.mc.prototypePattern;
  */
 public class TestPrototype {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
+		//Ç³¿½±´
 		ConcretePrototype cp=new ConcretePrototype();
 		for(int i=0;i<10;i++){
 			ConcretePrototype cpclone=(ConcretePrototype) cp.clone();
 			cpclone.show();
 		}
+		
+		//Éî¿½±´
+		Person p=new Person(new Head(22,"yellow"));
+		Person p1=p.clone();
+		System.out.println(p.getHead());
+		System.out.println(p1.getHead());
 	}
 
 }
