@@ -101,7 +101,7 @@ public class Singleton {
 		return instance;
 	}*/
 	/**
-	 * 懒汉模式加锁(终极)版
+	 * 懒汉模式加锁(终极)版-双重校验锁
 	 * 我们看到双重校验锁即实现了延迟加载，又解决了线程并发问题，同时还解
 	 * 决了执行效率问题，是否真的就万无一失了呢？ 这里要提到Java中的指令
 	 * 重排优化。所谓指令重排优化是指在不改变原语义的情况下，通过调整指令
@@ -151,8 +151,6 @@ public class Singleton {
 	public static Singleton getInstance(){
 		return SingletonHolder.instance;
 	}
-	
-	
     
 	
 }
